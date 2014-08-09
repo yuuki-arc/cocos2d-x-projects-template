@@ -1,0 +1,26 @@
+# -*- encoding: utf-8 -*-
+# ref. http://qiita.com/g-1/items/01f6c430326dfd125af9
+
+PROJECT_PATH = "../cocos2d/build/cocos2d_libs.xcodeproj"
+TARGET_NAME="'build all libs iOS'"
+OUTPUT_DEBUG="tmp/iphonesimulator"
+OUTPUT_RELEASE="tmp/iphoneos"
+OUTPUT_LIB="../lib"
+
+desc "静的ライブラリをビルドします"
+task "lib" do
+    sh "xcodebuild -project #{PROJECT_PATH} -configuration Release -sdk iphonesimulator7.1 -target #{TARGET_NAME} TARGET_BUILD_DIR=../../build/#{OUTPUT_DEBUG} BUILT_PRODUCTS_DIR=../../build/#{OUTPUT_DEBUG} clean build"
+
+    sh "xcodebuild -project #{PROJECT_PATH} -configuration Release -sdk iphoneos7.1 -target #{TARGET_NAME} TARGET_BUILD_DIR=../../build/#{OUTPUT_RELEASE} BUILT_PRODUCTS_DIR=../../build/#{OUTPUT_RELEASE} clean build"
+end
+
+desc "lipoコマンドで各デバイス向けの静的ライブラリをひとつのバイナリにします"
+task "lipo" do
+
+    Dir.glob("#{OUTPUT_RELEASE}/*"){|path|
+        p path
+        file = File.basename(path)
+
+        sh "lipo '#{OUTPUT_DEBUG}/#{file}' '#{OUTPUT_RELEASE}/#{file}' -create -output '#{OUTPUT_LIB}/#{file}'"
+    }
+end
