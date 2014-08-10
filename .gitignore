@@ -19,6 +19,8 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+cocos2d/build/build/
+lib/*.a
 
 #CocoaPod
 Pods/*
