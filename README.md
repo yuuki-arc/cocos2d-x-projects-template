@@ -14,7 +14,7 @@ It is in the state after running the `cocos new` command.
 
 ## Requirement
 
-- cocos2d-x v3.1.1 only
+- cocos2d-x v3.1.1 later
 - environment variables of cocos2d-x already set up
 
 ## How to start
