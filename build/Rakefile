@@ -2,7 +2,7 @@
 # ref. http://qiita.com/g-1/items/01f6c430326dfd125af9
 
 PROJECT_PATH = "../cocos2d/build/cocos2d_libs.xcodeproj"
-TARGET_NAME="'build all libs iOS'"
+TARGET_NAME="'libcocos2d iOS'"
 OUTPUT_DEBUG="tmp/iphonesimulator"
 OUTPUT_RELEASE="tmp/iphoneos"
 OUTPUT_LIB="../lib"
