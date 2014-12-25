@@ -23,6 +23,7 @@ It is in the state after running the `cocos new` command.
 $ git clone -b <branch-name> git@github.com:yuuki-arc/cocos2d-x-projects-template.git
 $ cd cocos2d-x-projects-template/build
 $ rake lib && rake lipo
+$ cd .. 
 $ cp -R build cocos2d lib [Your project directory]
 ```
 
